@@ -1,5 +1,5 @@
 
-import './App.css'
+import "./design/App.css"
 import { RouterProvider } from "react-router-dom";
 import PubicRoutes from "./routes/PubicRoutes.tsx"
 function App() {
