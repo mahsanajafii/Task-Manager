@@ -8,6 +8,8 @@ export default {
     extend: {
       colors:{
         "btn-background": "#208D8E",
+        "pending":"#F92E8F",
+
 
       },
       fontWeight: {
