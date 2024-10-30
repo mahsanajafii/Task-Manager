@@ -37,11 +37,11 @@ const Login = () => {
             <label htmlFor="username" className="block w-2/3 text-start">
               نام کاربری:
             </label>
-            <input id="username" className="w-2/3 h-10 rounded-xl"></input>
+            <input id="username" type="text" className="w-2/3 h-10 rounded-xl"></input>
             <label htmlFor="password" className="block w-2/3 text-start">
               رمز عبور:
             </label>
-            <input id="password" className="w-2/3 h-10 rounded-xl"></input>
+            <input id="password" type="password" className="w-2/3 h-10 rounded-xl"></input>
 
             <span className=" w-1/3 m-2">
               <Button onClick={handelClick}>ورود</Button>
