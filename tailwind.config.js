@@ -6,6 +6,10 @@ export default {
   ],
     theme: {
     extend: {
+      colors:{
+        "btn-background": "#208D8E",
+
+      },
       fontWeight: {
         thin: "100",
         "extra-light": "200",
