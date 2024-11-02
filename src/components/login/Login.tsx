@@ -1,5 +1,4 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import logo from "../../assets/images/logo2.png";
 import Button from "../common/button/Button";
 import Card from "../common/card/Card";
 import Header from "../common/header/Header";
