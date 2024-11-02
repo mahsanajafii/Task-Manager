@@ -4,7 +4,7 @@ import Header from "../common/header/Header";
 
 const Conditions = () => {
   return (
-    <main className="  w-full flex h-screen flex-col min-w-[800px] justify-between items-center ">
+    <main className="  w-full flex h-screen flex-col min-w-[800px] justify-between items-center blur-[0.2rem] brightness-95 ">
       <Header text={"قبلا ثبت نام کردی؟"} btntitle={"ورود"} />
       <div className=" flex justify-center items-end ">
         <Card style="w-40 h-40 mb-10 ml-20 bg-pending px-2 text-center ">
