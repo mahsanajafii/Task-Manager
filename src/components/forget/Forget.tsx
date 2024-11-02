@@ -41,7 +41,29 @@ const Forget: React.FC = () => {
             </span>
           </Card>
         ) : (
-          <p>msdvnl</p>
+          <Card style="w-[540px] h-[540px] mb-20">
+            <p className="text-2xl font-bold">تغییر رمز عبور </p>
+            <label htmlFor="username" className="block w-2/3 text-start">
+              رمز عبور جدید را وارد کنید{" "}
+            </label>
+            <input
+              id="username"
+              type="text"
+              className="w-2/3 px-4 h-10 rounded-xl"
+            ></input>
+            <label htmlFor="password" className="block w-2/3 text-start">
+              تکرار رمز عبور{" "}
+            </label>
+            <input
+              id="password"
+              type="password"
+              className="w-2/3 px-4 h-10 rounded-xl"
+            ></input>
+
+            <span className=" w-1/3 m-2">
+              <Button onClick={handelLoginClick}>ورود</Button>
+            </span>
+          </Card>
         )}
       </main>
     </>

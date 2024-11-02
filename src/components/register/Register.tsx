@@ -1,18 +1,20 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import logo from "../../assets/images/logo2.png";
 import Button from "../common/button/Button";
 import Card from "../common/card/Card";
 import Header from "../common/header/Header";
 const Register = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const handelClick = () => {
-    navigate("/login")
+    navigate("/login");
   };
   return (
     <>
       <main className="  w-full flex h-screen flex-col min-w-[800px] justify-between items-center ">
-      <Header text={"قبلا ثبت نام کردی؟"} btntitle={"ورود"} handelClick={handelClick}/>
-
+        <Header
+          text={"قبلا ثبت نام کردی؟"}
+          btntitle={"ورود"}
+          handelClick={handelClick}
+        />
 
         <Card style="w-[540px] h-[540px] mb-20">
           <p className="text-2xl font-bold">ثبت‌نام در تسک منیجر </p>
@@ -42,7 +44,10 @@ const Register = () => {
           ></input>
           <span className="flex gap-2 w-2/3">
             <input type="checkbox" />
-            <NavLink to="/conditions" className="underline"> قوانین و مقررات را می‌پذیرم.</NavLink>
+            <NavLink to="/conditions" className="underline">
+              {" "}
+              قوانین و مقررات را می‌پذیرم.
+            </NavLink>
           </span>
 
           <span className=" w-1/3 m-2 ">
