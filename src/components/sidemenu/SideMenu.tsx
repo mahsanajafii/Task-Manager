@@ -7,30 +7,38 @@ import useAllTasksStore from "../../stores/allTasksStore";
 import { ITasks } from "../../types/alltasks";
 import WorkSpaces from "../workspace/WorkSpaces";
 
-const list:ITasks = {
+const list: ITasks = {
   id: ~(Date.now() + (Math.random() + 1) * 20),
-  title: "جاوا",
+  title: "jsجاوا",
   staus: "done",
-  color: "blue",
-  projectList: [
-    {
-      id: ~(Date.now() + (Math.random() + 1) * 20),
-      projettitle: "کلندر",
-      tasks: [
-        {
-          taskID: ~(Date.now() + (Math.random() + 1) * 20),
-          tasktitle: "صفحه خروج",
-          deadline: "new Date().toLocaleDateString('fa-IR')",
-          users: ["admin"],
-          status: "done",
-          description: "tree task",
-          Priority: "2",
-        },
-      ],
-    },
-  ],
+  color:"blue",
   oner: "admin",
 };
+// const list: ITasks = {
+//   id: ~(Date.now() + (Math.random() + 1) * 20),
+//   title: "جاوا",
+//   staus: "done",
+//   color: "#fde047",
+//   projectList: [
+//     {
+//       id: ~(Date.now() + (Math.random() + 1) * 20),
+//       projettitle: "کلندر",
+//       tasks: [
+//         {
+//           taskID: ~(Date.now() + (Math.random() + 1) * 20),
+//           tasktitle: "صفحه خروج",
+//           deadline: "new Date().toLocaleDateString('fa-IR')",
+//           users: ["admin"],
+//           status: "done",
+//           description: "tree task",
+//           Priority: "2",
+// archive:true,
+//         },
+//       ],
+//     },
+//   ],
+//   oner: "admin",
+// };
 
 function SideMenu() {
   const [extended, setExtended] = useState(false);
@@ -44,25 +52,25 @@ function SideMenu() {
   }, []);
   console.log("allTasks", allTasks);
   return (
-    <aside className="w-[22%] h-screen fixed right-0 border-l-2 border-l-slate-200 flex flex-col justify-between items-center">
+    <aside className="w-[22%] h-screen fixed  right-0 border-l-2 border-l-slate-200 flex flex-col justify-between items-center">
       <div className="flex flex-row justify-center items-center mt-6 mb-4 h-[95px]  w-fit gap-3 ">
         <img src={logo} alt="logo" className="w-14 h-14"></img>
-        <p className="text-5xl leading-relaxed w-full h-fit font-bold bg-clip-text text-transparent bg-gradient-to-l from-[#118C80] to-[#4AB7D8]">
+        <p className="text-3xl leading-relaxed w-full h-fit font-bold bg-clip-text text-transparent bg-gradient-to-l from-[#118C80] to-[#4AB7D8]">
           تسک منیجر
         </p>
       </div>
-      <div className="h-full w-[80%] flex flex-col justify-between bg-blue-300">
-        <div className="h-10 flex flex-row justify-between items-center text-2xl">
+      <div className="h-full w-[80%] flex flex-col justify-between">
+        <div className="h-10 flex flex-row justify-between items-center text-xl">
           <p className="w-full">ورک‌اسپیس‌ها</p>
           <IoIosArrowDown
             onClick={handelArrowMenu}
-            size={24}
+            size={14}
             className={` transition-all duration-400 ease-in-out ${
               extended ? "rotate-0" : "rotate-180"
             }`}
           />
         </div>
-        <div className="h-16 rounded-md bg-slate-300 flex items-center justify-start">
+        <div className="h-10 rounded-md bg-slate-300 flex items-center justify-start">
           <CiSearch size={24} />
           <input
             type="text"
@@ -79,12 +87,9 @@ function SideMenu() {
             ساختن ورک‌اسپیس جدید
           </button>
         </div>
-        {
-            allTasks.map((list)=>(
-
-                <WorkSpaces list={list}/>
-            ))
-        }
+        <div className="overflow-y-auto h-[70%] scrollbar-thin scrollbar-track-transparent scrollbar-thumb-transparent">
+          <WorkSpaces allTasks={allTasks} />
+        </div>
       </div>
       <div className="h-[10%]">
         <p>user info</p>

@@ -3,11 +3,11 @@ export interface ITasks{
       title: string,
       staus: string,
       color:string,
-      projectList: [
+      projectList?: [
           {
               id:number,
           projettitle: string,
-          tasks: [
+          tasks?: [
             {
                 taskID:number,
                 tasktitle: string,
@@ -16,6 +16,7 @@ export interface ITasks{
                 status:string,
                 description:string,
                 Priority:string,
+                archive:boolean,
             },
         ],
     },

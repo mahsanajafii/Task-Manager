@@ -5,7 +5,7 @@ const allworkspaces = [
       id: ~(Date.now() + (Math.random()+1)*20),
       title: "ریکت",
       staus: "open",
-      color: "red",
+      color: "#ef4444",
       projectList: [
         {
           id: ~(Date.now() + (Math.random()+1)*20),
@@ -19,6 +19,7 @@ const allworkspaces = [
               status: "open",
               description: "first task",
               Priority:"1",
+              archive:false,
             },
           ],
         },
@@ -29,7 +30,7 @@ const allworkspaces = [
         id: ~(Date.now() + (Math.random()+1)*20),
         title: "تیلویند",
         staus: "open",
-        color: "yellow",
+        color: "#93c5fd",
         projectList: [
           {
             id: ~(Date.now() + (Math.random()+1)*20),
@@ -43,6 +44,7 @@ const allworkspaces = [
                 status: "pending",
                 description: "two task",
                 Priority:"1",
+                archive:false,
               },
             ],
           },
