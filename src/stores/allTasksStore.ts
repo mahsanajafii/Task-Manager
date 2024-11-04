@@ -9,11 +9,11 @@ const allworkspaces = [
       projectList: [
         {
           id: ~(Date.now() + (Math.random()+1)*20),
-          projettitle: "فروشگاه",
+          projectTitle: "فروشگاه",
           tasks: [
             {
               taskID: ~(Date.now() + (Math.random()+1)*20),
-              tasktitle: "صفحه لاگین",
+              taskTitle: "صفحه لاگین",
               deadline: "new Date().toLocaleDateString('fa-IR')",
               users: ["admin"],
               status: "open",
@@ -34,11 +34,11 @@ const allworkspaces = [
         projectList: [
           {
             id: ~(Date.now() + (Math.random()+1)*20),
-            projettitle: "فروشگاه",
+            projectTitle: "فروشگاه",
             tasks: [
               {
                 taskID: ~(Date.now() + (Math.random()+1)*20),
-                tasktitle: "صفحه رمز",
+                taskTitle: "صفحه رمز",
                 deadline: "new Date().toLocaleDateString('fa-IR')",
                 users: ["admin"],
                 status: "pending",

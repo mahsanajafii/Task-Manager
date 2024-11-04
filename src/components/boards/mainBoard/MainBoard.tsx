@@ -10,10 +10,10 @@ const MainBoard = ({ children }: IMainLayout)=> {
   return (
     <main className=" w-screen h-screen flex flex-row ">
         <SideMenu/>
-        <section className="flex flex-col gap-1 justify-center items-center">
+        <section className="z-0 flex flex-col gap-1 justify-center items-center">
         <HeaderBord/>
 <SearchAndFilter/>
-        <section className="w-[78%] h-[80%] bg-red-400">{children}</section>
+        <section className="z-0 w-[78%] h-[80%] bg-red-400">{children}</section>
         </section>
     </main>
   )

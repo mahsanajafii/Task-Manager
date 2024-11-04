@@ -6,11 +6,11 @@ export interface ITasks{
       projectList?: [
           {
               id:number,
-          projettitle: string,
+              projectTitle: string,
           tasks?: [
             {
                 taskID:number,
-                tasktitle: string,
+                taskTitle: string,
                 deadline:string,
                 users: string[],
                 status:string,

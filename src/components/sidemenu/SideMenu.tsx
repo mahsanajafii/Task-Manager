@@ -6,12 +6,14 @@ import { FaRegPlusSquare } from "react-icons/fa";
 import useAllTasksStore from "../../stores/allTasksStore";
 import { ITasks } from "../../types/alltasks";
 import WorkSpaces from "../workspace/WorkSpaces";
+import Switch from "../darkmode/Switch";
+import { LiaDoorOpenSolid } from "react-icons/lia";
 
 const list: ITasks = {
   id: ~(Date.now() + (Math.random() + 1) * 20),
   title: "jsجاوا",
   staus: "done",
-  color:"blue",
+  color:"#fde047",
   oner: "admin",
 };
 // const list: ITasks = {
@@ -22,11 +24,11 @@ const list: ITasks = {
 //   projectList: [
 //     {
 //       id: ~(Date.now() + (Math.random() + 1) * 20),
-//       projettitle: "کلندر",
+//       projectTitle: "کلندر",
 //       tasks: [
 //         {
 //           taskID: ~(Date.now() + (Math.random() + 1) * 20),
-//           tasktitle: "صفحه خروج",
+//           taskTitle: "صفحه خروج",
 //           deadline: "new Date().toLocaleDateString('fa-IR')",
 //           users: ["admin"],
 //           status: "done",
@@ -52,14 +54,14 @@ function SideMenu() {
   }, []);
   console.log("allTasks", allTasks);
   return (
-    <aside className="w-[22%] h-screen fixed  right-0 border-l-2 border-l-slate-200 flex flex-col justify-between items-center">
+    <aside className="w-[22%] h-screen right-0 border-l-2 border-l-slate-200 flex flex-col justify-between items-center">
       <div className="flex flex-row justify-center items-center mt-6 mb-4 h-[95px]  w-fit gap-3 ">
         <img src={logo} alt="logo" className="w-14 h-14"></img>
         <p className="text-3xl leading-relaxed w-full h-fit font-bold bg-clip-text text-transparent bg-gradient-to-l from-[#118C80] to-[#4AB7D8]">
           تسک منیجر
         </p>
       </div>
-      <div className="h-full w-[80%] flex flex-col justify-between">
+      <div className=" relative bg-blue-300 z-0 overflow-x-visible h-full w-[85%] flex flex-col justify-between">
         <div className="h-10 flex flex-row justify-between items-center text-xl">
           <p className="w-full">ورک‌اسپیس‌ها</p>
           <IoIosArrowDown
@@ -87,16 +89,21 @@ function SideMenu() {
             ساختن ورک‌اسپیس جدید
           </button>
         </div>
-        <div className="overflow-y-auto h-[70%] scrollbar-thin scrollbar-track-transparent scrollbar-thumb-transparent">
+        <div className="overflow-y-auto h-[370px] scrollbar-thin scrollbar-track-transparent scrollbar-thumb-transparent">
           <WorkSpaces allTasks={allTasks} />
         </div>
       </div>
-      <div className="h-[10%]">
-        <p>user info</p>
+      <div className="h-[10%] w-[85%]  flex justify-start gap-2 items-center">
+        <div className="w-9 h-9 rounded-full  bg-red-300"></div>
+        <p>user name</p>
       </div>
-      <footer className="flex h-[10%] justify-between">
-        <p>exit</p>
-        <p>darlogo</p>
+      <footer className="flex h-[10%] w-[85%]  justify-between items-center mb-4">
+        <div className="flex  justify-start items-center" >
+        <LiaDoorOpenSolid />
+        <p>خروج</p>
+
+        </div>
+        <Switch/>
       </footer>
     </aside>
   );
