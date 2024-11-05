@@ -6,6 +6,9 @@ export default {
       colors: {
         "btn-background": "#208D8E",
         pending: "#F92E8F",
+        open:"#FD7E14",
+        progress:"#4C6EF5",
+        do:"#4AB7D8"
       },
       fontWeight: {
         thin: "100",
