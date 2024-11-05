@@ -7,6 +7,8 @@ export interface ITasks{
           {
               id:number,
               projectTitle: string,
+              staus: string,
+
           tasks?: [
             {
                 taskID:number,

@@ -11,10 +11,10 @@ const MainBoard:React.FC<IMainLayout> = ({ children ,handelActiveComponent}) => 
   return (
     <main className=" w-screen h-screen flex flex-row ">
       <SideMenu />
-      <section className="z-0 flex flex-col gap-1 justify-center items-center">
+      <section className="-z-2 w-[78%] flex flex-col gap-1 justify-center items-center">
         <HeaderBord handelActiveComponent={handelActiveComponent}/>
         <SearchAndFilter />
-        <section className="z-0 w-[78%] h-[80%] bg-red-400">{children}</section>
+        <section className="-z-2 w-full  h-[78%] mt-24 overflow-y-auto bg-red-400">{children}</section>
       </section>
     </main>
   );

@@ -19,6 +19,7 @@ const list: ITasks = {
     {
       id: ~(Date.now() + (Math.random() + 1) * 20),
       projectTitle: "کلندر",
+      staus: "open",
       tasks: [
         {
           taskID: ~(Date.now() + (Math.random() + 1) * 20),

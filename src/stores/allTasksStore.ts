@@ -9,7 +9,9 @@ const allworkspaces = [
     projectList: [
       {
         id: ~(Date.now() + (Math.random() + 1) * 20),
-        projectTitle: "فروشگاه",
+        projectTitle: "1فروشگاه",
+        staus: "pending",
+
         tasks: [
           {
             taskID: ~(Date.now() + (Math.random() + 1) * 20),
@@ -34,7 +36,9 @@ const allworkspaces = [
     projectList: [
       {
         id: ~(Date.now() + (Math.random() + 1) * 20),
-        projectTitle: "فروشگاه",
+        projectTitle: "2فروشگاه",
+        staus: "progress",
+
         tasks: [
           {
             taskID: ~(Date.now() + (Math.random() + 1) * 20),
