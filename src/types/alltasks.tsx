@@ -2,7 +2,7 @@ export interface ITasks{
       id: number,
       title: string,
       staus: string,
-      color:string,
+      color:string
       projectList?: [
           {
               id:number,

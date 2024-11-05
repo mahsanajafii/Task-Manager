@@ -5,7 +5,7 @@ const allworkspaces = [
       id: ~(Date.now() + (Math.random()+1)*20),
       title: "ریکت",
       staus: "open",
-      color: "#ef4444",
+      color: "ef4444",
       projectList: [
         {
           id: ~(Date.now() + (Math.random()+1)*20),
@@ -30,7 +30,7 @@ const allworkspaces = [
         id: ~(Date.now() + (Math.random()+1)*20),
         title: "تیلویند",
         staus: "open",
-        color: "#93c5fd",
+        color: "93c5fd",
         projectList: [
           {
             id: ~(Date.now() + (Math.random()+1)*20),

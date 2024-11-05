@@ -1,41 +1,60 @@
-import { FaRegPlusSquare } from "react-icons/fa"
-import Button from "../common/button/Button"
-interface IColumnMoreProps{
-    title:string,
+import { FaRegPlusSquare } from "react-icons/fa";
+import Button from "../common/button/Button";
+import { FiEdit } from "react-icons/fi";
+import { GoLink } from "react-icons/go";
+import { RiDeleteBinLine } from "react-icons/ri";
+import { MdOutlineColorLens } from "react-icons/md";
+interface IColumnMoreProps {
+  title: string;
+  ID:number;
 }
-const ColumnMore:React.FC<IColumnMoreProps> = ({title}) => {
+const ColumnMore: React.FC<IColumnMoreProps> = ( {data} ) => {
+  const taskList = [
+    { title: "ساختن تسک جدید", logo: <FaRegPlusSquare /> },
+    { title: "ویرایش نام پروژه", logo: <FiEdit /> },
+    { title: "کپی لینک", logo: <GoLink /> },
+    { title: "حذف", logo: <RiDeleteBinLine /> },
+  ];
+  const projectList = [
+    { title: "ساختن پروژه جدید", logo: <FaRegPlusSquare /> },
+    { title: "ویرایش نام ورک‌اسپیس", logo: <FiEdit /> },
+    { title: "ویرایش رنگ", logo:<MdOutlineColorLens />},
+    { title: "کپی لینک", logo: <GoLink /> },
+    { title: "حذف", logo: <RiDeleteBinLine /> },
+  ];
+
   return (
-    <div className="h-fit w-fit pl-4 top-0 left-[-50px] absolute bg-yellow-300 z-10 rounded-xl pt-5 gap-3 flex flex-col justify-start items-start ">
-
-    {title==="task"?(
-        <>
-        <p className="flex justify-start gap-2 items-center">
-            <FaRegPlusSquare />
-            <span>ساختن پروژه جدید</span>
-        </p>
-        <p className="flex justify-start gap-2 items-center">
-        <FaRegPlusSquare />
-        <span>ویرایش نام ورک‌اسپیس</span>
-    </p>
-    <p className="flex justify-start gap-2 items-center">
-        <FaRegPlusSquare />
-        <span>ویرایش رنگ</span>
-    </p>
-    <p className="flex justify-start gap-2 items-center">
-        <FaRegPlusSquare />
-        <span>کپی لینک</span>
-    </p>
-    <p className="flex justify-start text-red-400 gap-2 items-center">
-        <FaRegPlusSquare />
-        <span>حذف</span>
-    </p>
-    <Button children={"اشتراک‌گذاری"} style="h-fit"/>
+    <div className={` pl-4 top-1 left-[-210px] absolute px-2 bg-gray-100 z-10 rounded-xl pt-5 gap-5 flex flex-col justify-start items-start `}>
+      {data.title === "task" ? (
+          <>
+          {taskList.map((item, index) => (
+            <p
+              key={index}
+              className={`${item.title === "حذف" && "text-red-400"} cursor-pointer flex justify-start gap-2 items-center`}
+            >
+              {item.logo}
+              <span>{item.title}</span>
+            </p>
+          ))}
+          <Button children={"اشتراک‌گذاری"} style="h-fit py-1" />
         </>
-    
-        
-):(<p>jdhfj</p>)}
-    </div>
-  )
-}
+      ) : (
+        // <div className={`${data.ID!==0 ? "h-fit":"h-0"}overflow-hidden transition-height duration-700 ease-in-out `}>
+<>
+          {projectList.map((item, index) => (
+              <p
+              key={index}
+              className={`${item.title === "حذف" && "text-red-400"} cursor-pointer flex justify-start gap-2 items-center`}
+              >
+              {item.logo}
+              <span>{item.title}</span>
+            </p>
+          ))}
+          <Button children={" اشتراک‌گذاری"} style="h-fit py-1" />
+          </>
+        )}
+        </div>
+  );
+};
 
-export default ColumnMore
+export default ColumnMore;

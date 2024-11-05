@@ -11,10 +11,28 @@ import { LiaDoorOpenSolid } from "react-icons/lia";
 
 const list: ITasks = {
   id: ~(Date.now() + (Math.random() + 1) * 20),
-  title: "jsجاوا",
+  title: "js",
   staus: "done",
-  color:"#fde047",
+  color:"ef4444",
   oner: "admin",
+  projectList: [
+        {
+          id: ~(Date.now() + (Math.random() + 1) * 20),
+          projectTitle: "کلندر",
+          tasks: [
+            {
+              taskID: ~(Date.now() + (Math.random() + 1) * 20),
+              taskTitle: "صفحه خروج",
+              deadline: "new Date().toLocaleDateString('fa-IR')",
+              users: ["admin"],
+              status: "done",
+              description: "tree task",
+              Priority: "2",
+    archive:true,
+            },
+          ],
+        },
+      ],
 };
 // const list: ITasks = {
 //   id: ~(Date.now() + (Math.random() + 1) * 20),
@@ -45,23 +63,24 @@ const list: ITasks = {
 function SideMenu() {
   const [extended, setExtended] = useState(false);
   const { allTasks, loadAllTasks, addTask } = useAllTasksStore();
-
+const clearlocal=()=>{
+  localStorage.clear()
+}
   const handelArrowMenu = () => {
     setExtended(!extended);
   };
   useEffect(() => {
     loadAllTasks();
   }, []);
-  console.log("allTasks", allTasks);
   return (
-    <aside className="w-[22%] h-screen right-0 border-l-2 border-l-slate-200 flex flex-col justify-between items-center">
-      <div className="flex flex-row justify-center items-center mt-6 mb-4 h-[95px]  w-fit gap-3 ">
+    <aside className="relative w-[22%] h-screen right-0 border-l-2 border-l-slate-200 flex flex-col justify-between  items-center">
+      <div className=" static flex  flex-row justify-center items-center mt-6 mb-4 h-[95px]  w-fit gap-3 ">
         <img src={logo} alt="logo" className="w-14 h-14"></img>
-        <p className="text-3xl leading-relaxed w-full h-fit font-bold bg-clip-text text-transparent bg-gradient-to-l from-[#118C80] to-[#4AB7D8]">
+        <p onClick={clearlocal} className="text-3xl leading-relaxed w-full h-fit font-bold bg-clip-text text-transparent bg-gradient-to-l from-[#118C80] to-[#4AB7D8]">
           تسک منیجر
         </p>
       </div>
-      <div className=" relative bg-blue-300 z-0 overflow-x-visible h-full w-[85%] flex flex-col justify-between">
+      <div className="static top-[100px] z-0 overflow-x-visible h-full w-[85%] flex flex-col justify-between">
         <div className="h-10 flex flex-row justify-between items-center text-xl">
           <p className="w-full">ورک‌اسپیس‌ها</p>
           <IoIosArrowDown
@@ -89,11 +108,11 @@ function SideMenu() {
             ساختن ورک‌اسپیس جدید
           </button>
         </div>
-        <div className="overflow-y-auto h-[370px] scrollbar-thin scrollbar-track-transparent scrollbar-thumb-transparent">
+        <div className=" relative h-[370px] overflow-y overflow-x-visible z-0 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-transparent">
           <WorkSpaces allTasks={allTasks} />
         </div>
       </div>
-      <div className="h-[10%] w-[85%]  flex justify-start gap-2 items-center">
+      <div className="static h-[10%] w-[85%]  flex justify-start gap-2 items-center">
         <div className="w-9 h-9 rounded-full  bg-red-300"></div>
         <p>user name</p>
       </div>
