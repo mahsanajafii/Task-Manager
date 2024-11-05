@@ -1,4 +1,4 @@
-import ListView from "../../components/listview/ListView"
+import ListView from "../../components/boards/listview/ListView"
 
 const ListViewPage = () => {
   return (
