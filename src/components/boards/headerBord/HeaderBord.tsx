@@ -4,7 +4,7 @@ import { IoCalendarOutline, IoShareSocialOutline } from "react-icons/io5";
 
 function HeaderBord() {
   return (
-    <header className="border-b-2 border-gray-200 fixed top-0 left-0 w-[78%] h-[10%] flex flex-row px-2 justify-between items-center">
+    <header className="border-b-2 text-sm border-gray-200 fixed top-0 left-0 w-[78%] h-[8%] flex flex-row px-2 justify-between items-center">
       <div className="flex justify-start gap-6 items-center  w-1/2 h-1/2 ">
         {/* <h1>{titleboard}</h1> */}
         <div className="flex justify-center items-center divide-x-2 divide-gray-500 w-fit ">

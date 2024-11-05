@@ -1,5 +1,5 @@
 import { FaRegPlusSquare } from "react-icons/fa";
-import { ITasks } from "../../types/alltasks";
+import { ITasks } from "../../types/alltasksTypes";
 import { useEffect, useState } from "react";
 import ColumnMore from "../columnMore/ColumnMore";
 
@@ -41,7 +41,7 @@ const WorkSpaces: React.FC<IWorkSpacesProps> = ({ allTasks }) => {
     setShow(false);
   }, []);
   return (
-    <div className="flex flex-col gap-5 overflow-x-visible">
+    <div className="flex flex-col gap-5 overflow-x-visible ">
       {show && <ColumnMore data={item} />}
 
       {allTasks.map((task, index) => (

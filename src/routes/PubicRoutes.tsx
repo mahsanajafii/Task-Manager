@@ -4,6 +4,7 @@ import RegisterPage from "../pages/registerPage/LoginPage";
 import ForgetPage from "../pages/forgetPage/ForgetPage";
 import ConditionsPage from "../pages/conditionsPage/ConditionsPage";
 import BoardPage from "../pages/boardPage/BoardPage";
+import ListViewPage from "../pages/listviewPage/ListViewPage";
 
 const PubicRoutes = createBrowserRouter([
   { path: "/", element: <LoginPage /> },
@@ -11,7 +12,14 @@ const PubicRoutes = createBrowserRouter([
   { path: "/register", element: <RegisterPage /> },
   { path: "/forget", element: <ForgetPage /> },
   { path: "/conditions", element: <ConditionsPage /> },
-  { path: "/board", element: <BoardPage /> },
+  { path: "/board", element: <BoardPage />,
+    children: [
+      {
+        path: "/board/list",
+        element: <ListViewPage />,
+      },
+    ]
+ },
 ]);
 
 export default PubicRoutes;
