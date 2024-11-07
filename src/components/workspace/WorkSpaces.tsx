@@ -64,23 +64,25 @@ const WorkSpaces: React.FC<IWorkSpacesProps> = ({ allTasks }) => {
             <button onClick={() => handelMenu(task.id, "project")}>...</button>
           </div>
           {activeKeys.has(index) && (
-            <ul className=" px-10">
+            <ul className="pr-6 w-full">
               {task.projectList && task.projectList.length > 0 ? (
                 task.projectList.map((project) => (
                   <li
                     key={project.id}
                     onClick={handelProject}
-                    className={` overflow-x-visible hover:bg-green-100 p-1 rounded-md w-full gap-[169px] cursor-pointer flex flex-row justify-between items-center  
+                    className={` overflow-x-visible hover:bg-green-100 p-1 rounded-md w-full cursor-pointer   
                       ${
                         activeKeys.has(index)
                           ? "opacity-100 translate-x-0"
                           : "opacity-0 translate-x-48"
                       }`}
                   >
-                    <span>{project.projectTitle}</span>
+                    <span className=" flex flex-row justify-between items-center">
+                    <p>{project.projectTitle}</p>
                     <button onClick={() => handelMenu(project.id, "task")}>
                       ...
                     </button>
+                    </span>
                   </li>
                 ))
               ) : (

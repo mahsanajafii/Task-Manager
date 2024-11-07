@@ -1,5 +1,5 @@
 import useAllTasksStore from "../../../stores/allTasksStore";
-import Column from "../../column/Column";
+import HeaderColumn from "../../headerColumn/HeaderColumn";
 import Task from "../../task/Task";
 
 const ColumnView = () => {
@@ -14,9 +14,9 @@ const ColumnView = () => {
   return (
     <div className="flex py-4 px-6 justify-between gap-3 items-center">
       {listOfColumn.map((item) => (
-        <div className="flex w-1/4 bg-yellow-300 overflow-y-auto flex-col items-center justify-center">
-        <Column item={item} />
-        <div className="bg-red-400 overflow-y-auto w-full">
+        <div className="flex w-1/4 overflow-y-hidden h-[600px] flex-col items-center justify-start gap-5">
+        <HeaderColumn item={item} />
+        <div className=" overflow-y-auto gap-3 bg-red-400 flex flex-col items-center w-full">
 
         {allTasks.map((task)=>(
             <Task/>

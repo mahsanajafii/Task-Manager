@@ -112,7 +112,7 @@ function SideMenu() {
             ساختن ورک‌اسپیس جدید
           </button>
         </div>
-        <div className=" relative h-[370px] overflow-y overflow-x-visible z-0 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-transparent">
+        <div className=" relative h-[370px] overflow-x-visible  scrollbar-thin scrollbar-track-transparent scrollbar-thumb-transparent">
           <WorkSpaces allTasks={allTasks} />
         </div>
       </div>
