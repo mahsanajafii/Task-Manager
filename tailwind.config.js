@@ -1,8 +1,15 @@
+import { combine } from 'zustand/middleware';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      boxShadow:{
+       
+        "combineshadow":"0px 2px 4px 0px rgba(0,0,0,0.4),0px 7px 6px -3px rgba(0,0,0,0.33),0px -3px 0px 0px rgba(0,0,0,0.2) inset"
+
+      },
       colors: {
         "btn-background": "#208D8E",
         pending: "#F92E8F",

@@ -4,14 +4,13 @@ import { useState } from "react";
 import ListViewPage from "../../../pages/listviewPage/ListViewPage";
 import ColumnViewPage from "../../../pages/columnViewPage/ColumnViewPage";
 import CalendarViewPage from "../../../pages/calendarViewPage/CalendarViewPage";
+import activeComponentStore from "../../../stores/activeComponentStore";
 
 const Board = () => {
-  const [activeComponent, setActiveComponent] = useState("column");
-const handelActiveComponent=(title:string)=>{
-    setActiveComponent(title)
-}
+  const {activeComponent} = activeComponentStore();
+
   return (
-    <MainBoard handelActiveComponent={handelActiveComponent}>
+    <MainBoard>
       {activeComponent === "column" && <ColumnViewPage />}
       {activeComponent === "list" && <ListViewPage />}
       {activeComponent === "calendar" && <CalendarViewPage />}

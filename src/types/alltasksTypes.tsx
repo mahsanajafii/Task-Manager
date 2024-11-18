@@ -26,8 +26,8 @@ export interface ITasks{
 oner:string,
 }
 export interface IAllTasks{
-    allTasks:ITasks[] ,
-    addTask:(task:ITasks)=>void ,
-    loadAllTasks:()=>void
+    allWorkSpace:ITasks[] ,
+    addWorkSpace:(WorkSpace:ITasks)=>void ,
+    loadAllWorkSpace:()=>void
 
 }

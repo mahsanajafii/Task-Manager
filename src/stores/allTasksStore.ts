@@ -58,20 +58,29 @@ const allworkspaces = [
 ];
 
 const useAllTasksStore = create<IAllTasks>((set) => ({
-  allTasks: allworkspaces,
-  addTask: (newValue: ITasks) =>
+  allWorkSpace: allworkspaces,
+  addWorkSpace: (newValue: ITasks) =>
     set((state) => {
-      const updatedValues = [...state.allTasks, newValue]; // Add new value to the array
-      localStorage.setItem("allTasks", JSON.stringify(updatedValues)); // Save updated array to localStorage
-      return { allTasks: updatedValues }; // Update the state with the new array
+      const updatedValues = [...state.allWorkSpace, newValue]; // Add new value to the array
+      localStorage.setItem("allWorkSpace", JSON.stringify(updatedValues)); // Save updated array to localStorage
+      return { allWorkSpace: updatedValues }; // Update the state with the new array
     }),
-  loadAllTasks: () => {
+  loadAllWorkSpace: () => {
     // const is:localStorage.getItem('allTasks')
-    const storedValues = localStorage.getItem("allTasks")
-      ? JSON.parse(localStorage.getItem("allTasks"))
+    const storedValues = localStorage.getItem("allWorkSpace")
+      ? JSON.parse(localStorage.getItem("allWorkSpace"))
       : allworkspaces;
-    set({ allTasks: storedValues }); // Load values from localStorage into state
+    set({ allWorkSpace: storedValues }); // Load values from localStorage into state
   },
+// allTasks:()=>{
+//   const value = localStorage.getItem("allWorkSpace")?JSON.parse(localStorage.getItem("allWorkSpace")):allworkspaces,
+// // value.map((val)=>(
+
+// // ))
+
+// }
 }));
 
+
 export default useAllTasksStore;
+
