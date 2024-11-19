@@ -11,7 +11,7 @@ const MainBoard: React.FC<IMainLayout> = ({
 }) => {
   return (
     <main className=" overflow-y-hidden w-screen h-screen flex flex-row ">
-      {/* <SideMenu /> */}
+      <SideMenu />
       <section className="-z-2 w-[78%] flex flex-col gap-1 justify-center items-center">
         <HeaderBord />
         <SearchAndFilter />

@@ -1,17 +1,17 @@
 import { FaRegPlusSquare } from "react-icons/fa";
-import { ITasks } from "../../types/alltasksTypes";
+import { IWorkspace } from "../../types/alltasksTypes";
 import { useEffect, useState } from "react";
 import ColumnMore from "../columnMore/ColumnMore";
 
 interface IWorkSpacesProps {
-  allTasks: ITasks[];
+  allWorkSpaces: IWorkspace[];
 }
 interface IItem {
   title: string;
   ID: number;
 }
 
-const WorkSpaces: React.FC<IWorkSpacesProps> = ({ allTasks }) => {
+const WorkSpaces: React.FC<IWorkSpacesProps> = ({ allWorkSpaces }) => {
   const [activeKeys, setActiveKeys] = useState<Set<number>>(new Set());
   const [show, setShow] = useState(false);
   const [item, setItem] = useState<IItem>({ ID: 0, title: "" });
@@ -44,10 +44,10 @@ const WorkSpaces: React.FC<IWorkSpacesProps> = ({ allTasks }) => {
     <div className="flex flex-col gap-5 overflow-x-visible ">
       {show && <ColumnMore data={item} />}
 
-      {allTasks.map((task, index) => (
+      {allWorkSpaces.map((task, index) => (
         <div
           className="flex flex-col justify-start gap-5 items-start"
-          key={task.id}
+          key={index}
         >
           <div className="flex justify-start items-center gap-2 w-full  hover:bg-green-200  p-1 rounded-md ">
             <div className="flex justify-start items-center gap-2 w-full">
@@ -58,7 +58,7 @@ const WorkSpaces: React.FC<IWorkSpacesProps> = ({ allTasks }) => {
                 onClick={() => handleClick(index)}
                 className={`cursor-pointer`}
               >
-                {task.title}
+                {task.workspacesTitle}
               </p>
             </div>
             <button onClick={() => handelMenu(task.id, "project")}>...</button>

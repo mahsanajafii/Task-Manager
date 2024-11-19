@@ -3,39 +3,41 @@ import logo from "../../assets/images/logo2.png";
 import { useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { FaRegPlusSquare } from "react-icons/fa";
-import useAllTasksStore from "../../stores/allTasksStore";
-import { ITasks } from "../../types/alltasksTypes";
+import useAllTasksStore from "../../stores/useAllTasksStore";
+import { IWorkspace } from "../../types/alltasksTypes";
 import WorkSpaces from "../workspace/WorkSpaces";
 import Switch from "../darkmode/Switch";
 import { LiaDoorOpenSolid } from "react-icons/lia";
+import { v4 as uuidv4 } from "uuid";
 
-const list: ITasks = {
-  id: ~(Date.now() + (Math.random() + 1) * 20),
-  title: "js",
+const list: IWorkspace = {
+  workspacesId: uuidv4(),
+  workspacesTitle: "js",
   staus: "done",
   color: "ef4444",
   oner: "admin",
   projectList: [
     {
-      id: ~(Date.now() + (Math.random() + 1) * 20),
+      projectId: uuidv4(),
       projectTitle: "کلندر",
       staus: "open",
       tasks: [
         {
-          taskID: ~(Date.now() + (Math.random() + 1) * 20),
+          taskID: uuidv4(),
           taskTitle: "صفحه خروج",
-          deadline: "new Date().toLocaleDateString('fa-IR')",
+          deadline: new Date().toLocaleDateString('fa-IR'),
+          createdAt: new Date().toLocaleDateString('fa-IR'),
           users: ["admin"],
           status: "done",
           description: "tree task",
-          Priority: "2",
+          Priority: "high",
           archive: true,
         },
       ],
     },
   ],
 };
-// const list: ITasks = {
+// const list: IWorkspace = {
 //   id: ~(Date.now() + (Math.random() + 1) * 20),
 //   title: "جاوا",
 //   staus: "done",
@@ -63,7 +65,8 @@ const list: ITasks = {
 
 function SideMenu() {
   const [extended, setExtended] = useState(false);
-  const { allTasks, loadAllTasks, addTask } = useAllTasksStore();
+  const { allWorkSpace, loadAllWorkSpace, addWorkSpace,allProjects, allTasks } =
+    useAllTasksStore();
   const clearlocal = () => {
     localStorage.clear();
   };
@@ -71,8 +74,12 @@ function SideMenu() {
     setExtended(!extended);
   };
   useEffect(() => {
-    loadAllTasks();
+    loadAllWorkSpace();
   }, []);
+  useEffect(() => {
+    allTasks();
+    allProjects();
+  }, [allWorkSpace]);
   return (
     <aside className="relative w-[22%] h-screen right-0 border-l-2 border-l-slate-200 flex flex-col justify-between  items-center">
       <div className=" static flex  flex-row justify-center items-center mt-6 mb-4 h-[95px]  w-fit gap-3 ">
@@ -105,7 +112,7 @@ function SideMenu() {
         </div>
         <div>
           <button
-            onClick={() => addTask(list)}
+            onClick={() => addWorkSpace(list)}
             className="w-full text-lg h-7 rounded-xl p-4 bg-slate-400 flex justify-center gap-1 items-center"
           >
             <FaRegPlusSquare />
@@ -113,7 +120,7 @@ function SideMenu() {
           </button>
         </div>
         <div className=" relative h-[370px] overflow-x-visible  scrollbar-thin scrollbar-track-transparent scrollbar-thumb-transparent">
-          <WorkSpaces allTasks={allTasks} />
+          <WorkSpaces allWorkSpaces={allWorkSpace} />
         </div>
       </div>
       <div className="static h-[10%] w-[85%]  flex justify-start gap-2 items-center">

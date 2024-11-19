@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import MainBoard from "../mainBoard/MainBoard";
-import { useState } from "react";
 import ListViewPage from "../../../pages/listviewPage/ListViewPage";
 import ColumnViewPage from "../../../pages/columnViewPage/ColumnViewPage";
 import CalendarViewPage from "../../../pages/calendarViewPage/CalendarViewPage";

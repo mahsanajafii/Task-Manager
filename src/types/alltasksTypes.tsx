@@ -1,23 +1,24 @@
-export interface ITasks{
-      id: number,
-      title: string,
+export interface IWorkspace{
+    workspacesId: string,
+    workspacesTitle: string,
       staus: string,
       color:string
       projectList?: [
           {
-              id:number,
+            projectId:string,
               projectTitle: string,
               staus: string,
 
           tasks?: [
             {
-                taskID:number,
+                taskID:string,
                 taskTitle: string,
                 deadline:string,
+                createdAt:string,
                 users: string[],
                 status:string,
                 description:string,
-                Priority:string,
+                priority:string,
                 archive:boolean,
             },
         ],
@@ -25,9 +26,29 @@ export interface ITasks{
 ],
 oner:string,
 }
-export interface IAllTasks{
-    allWorkSpace:ITasks[] ,
-    addWorkSpace:(WorkSpace:ITasks)=>void ,
-    loadAllWorkSpace:()=>void
+export interface IWorkspaces{
+    allWorkSpace:IWorkspace[] ,
+    addWorkSpace:(WorkSpace:IWorkspace)=>void ,
+    loadAllWorkSpace:()=>void,
+    allProjects:()=>void,
+    allTasks:()=>void,
+
+}
+export interface ITask{
+    
+        workspaceId:string,
+        workspacesTitle:string,
+        projectId:string ,
+        projectTitle:string ,
+        taskId: string,
+        taskTitle: string,
+        deadline:string ,
+        createdAt:string ,
+        users:string[] ,
+        status:string ,
+        description: string,
+        priority: string,
+        archive:boolean,
+      
 
 }
