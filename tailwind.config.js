@@ -41,6 +41,8 @@ export default {
       pattern:
         /text-(btn-background|pending|open|progress|do|low|high|emergency|intermediate)/,
     },
+    { pattern: /bg-(btn-background|pending|open|progress|do|low|high|emergency|intermediate)/, },
+    { pattern: /border-(btn-background|pending|open|progress|do|low|high|emergency|intermediate)/, },
   ],
   plugins: [require("tailwind-scrollbar")],
 };

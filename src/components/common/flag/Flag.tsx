@@ -1,7 +1,8 @@
 import { FaRegFlag } from "react-icons/fa";
 
 interface TFlagProps {
-  priority: string;
+  priority: "low"|"high"|"emergency"|"intermediate";
+  
 }
 
 const Flag: React.FC<TFlagProps> = ({ priority }) => {

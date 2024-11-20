@@ -14,7 +14,7 @@ const list: IWorkspace = {
   workspacesId: uuidv4(),
   workspacesTitle: "js",
   staus: "done",
-  color: "ef4444",
+  color: "fde047",
   oner: "admin",
   projectList: [
     {
@@ -30,38 +30,14 @@ const list: IWorkspace = {
           users: ["admin"],
           status: "done",
           description: "tree task",
-          Priority: "high",
+          priority: "high",
           archive: true,
         },
       ],
     },
   ],
 };
-// const list: IWorkspace = {
-//   id: ~(Date.now() + (Math.random() + 1) * 20),
-//   title: "جاوا",
-//   staus: "done",
-//   color: "#fde047",
-//   projectList: [
-//     {
-//       id: ~(Date.now() + (Math.random() + 1) * 20),
-//       projectTitle: "کلندر",
-//       tasks: [
-//         {
-//           taskID: ~(Date.now() + (Math.random() + 1) * 20),
-//           taskTitle: "صفحه خروج",
-//           deadline: "new Date().toLocaleDateString('fa-IR')",
-//           users: ["admin"],
-//           status: "done",
-//           description: "tree task",
-//           Priority: "2",
-// archive:true,
-//         },
-//       ],
-//     },
-//   ],
-//   oner: "admin",
-// };
+
 
 function SideMenu() {
   const [extended, setExtended] = useState(false);

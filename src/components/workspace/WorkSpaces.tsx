@@ -52,8 +52,9 @@ const WorkSpaces: React.FC<IWorkSpacesProps> = ({ allWorkSpaces }) => {
           <div className="flex justify-start items-center gap-2 w-full  hover:bg-green-200  p-1 rounded-md ">
             <div className="flex justify-start items-center gap-2 w-full">
               <span
-                className={`w-4 h-4 border rounded-md bg-[#${task.color}]`}
+                className="w-4 h-4 border rounded-md" style={{ backgroundColor: `#${task.color}` }}
               ></span>
+              
               <p
                 onClick={() => handleClick(index)}
                 className={`cursor-pointer`}
