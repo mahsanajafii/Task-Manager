@@ -7,7 +7,7 @@ const SearchAndFilter = () => {
     console.log("object");
   };
   return (
-    <section className="border-b-2 border-gray-200 fixed p-2 top-[10%] left-0 w-[78%] h-[10%] flex flex-row  justify-between items-center">
+    <section className="border-b-2 border-gray-200 fixed p-2 top-[8%] left-0 w-[78%] h-[8%] flex flex-row  justify-between items-center text-xs">
       <div className="flex justify-center items-center gap-2">
         <Search />
         <Filter />

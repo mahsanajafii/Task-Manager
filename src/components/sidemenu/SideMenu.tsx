@@ -3,85 +3,72 @@ import logo from "../../assets/images/logo2.png";
 import { useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { FaRegPlusSquare } from "react-icons/fa";
-import useAllTasksStore from "../../stores/allTasksStore";
-import { ITasks } from "../../types/alltasks";
+import useAllTasksStore from "../../stores/useAllTasksStore";
+import { IWorkspace } from "../../types/alltasksTypes";
 import WorkSpaces from "../workspace/WorkSpaces";
 import Switch from "../darkmode/Switch";
 import { LiaDoorOpenSolid } from "react-icons/lia";
+import { v4 as uuidv4 } from "uuid";
 
-const list: ITasks = {
-  id: ~(Date.now() + (Math.random() + 1) * 20),
-  title: "js",
+const list: IWorkspace = {
+  workspacesId: uuidv4(),
+  workspacesTitle: "js",
   staus: "done",
-  color:"ef4444",
+  color: "fde047",
   oner: "admin",
   projectList: [
+    {
+      projectId: uuidv4(),
+      projectTitle: "کلندر",
+      staus: "open",
+      tasks: [
         {
-          id: ~(Date.now() + (Math.random() + 1) * 20),
-          projectTitle: "کلندر",
-          tasks: [
-            {
-              taskID: ~(Date.now() + (Math.random() + 1) * 20),
-              taskTitle: "صفحه خروج",
-              deadline: "new Date().toLocaleDateString('fa-IR')",
-              users: ["admin"],
-              status: "done",
-              description: "tree task",
-              Priority: "2",
-    archive:true,
-            },
-          ],
+          taskID: uuidv4(),
+          taskTitle: "صفحه خروج",
+          deadline: new Date().toLocaleDateString('fa-IR'),
+          createdAt: new Date().toLocaleDateString('fa-IR'),
+          users: ["admin"],
+          status: "done",
+          description: "tree task",
+          priority: "high",
+          archive: true,
         },
       ],
+    },
+  ],
 };
-// const list: ITasks = {
-//   id: ~(Date.now() + (Math.random() + 1) * 20),
-//   title: "جاوا",
-//   staus: "done",
-//   color: "#fde047",
-//   projectList: [
-//     {
-//       id: ~(Date.now() + (Math.random() + 1) * 20),
-//       projectTitle: "کلندر",
-//       tasks: [
-//         {
-//           taskID: ~(Date.now() + (Math.random() + 1) * 20),
-//           taskTitle: "صفحه خروج",
-//           deadline: "new Date().toLocaleDateString('fa-IR')",
-//           users: ["admin"],
-//           status: "done",
-//           description: "tree task",
-//           Priority: "2",
-// archive:true,
-//         },
-//       ],
-//     },
-//   ],
-//   oner: "admin",
-// };
+
 
 function SideMenu() {
   const [extended, setExtended] = useState(false);
-  const { allTasks, loadAllTasks, addTask } = useAllTasksStore();
-const clearlocal=()=>{
-  localStorage.clear()
-}
+  const { allWorkSpace, loadAllWorkSpace, addWorkSpace,allProjects, allTasks } =
+    useAllTasksStore();
+  const clearlocal = () => {
+    localStorage.clear();
+  };
   const handelArrowMenu = () => {
     setExtended(!extended);
   };
   useEffect(() => {
-    loadAllTasks();
+    loadAllWorkSpace();
   }, []);
+  useEffect(() => {
+    allTasks();
+    allProjects();
+  }, [allWorkSpace]);
   return (
     <aside className="relative w-[22%] h-screen right-0 border-l-2 border-l-slate-200 flex flex-col justify-between  items-center">
       <div className=" static flex  flex-row justify-center items-center mt-6 mb-4 h-[95px]  w-fit gap-3 ">
         <img src={logo} alt="logo" className="w-14 h-14"></img>
-        <p onClick={clearlocal} className="text-3xl leading-relaxed w-full h-fit font-bold bg-clip-text text-transparent bg-gradient-to-l from-[#118C80] to-[#4AB7D8]">
+        <p
+          onClick={clearlocal}
+          className="text-3xl leading-relaxed w-full h-fit font-bold bg-clip-text text-transparent bg-gradient-to-l from-[#118C80] to-[#4AB7D8]"
+        >
           تسک منیجر
         </p>
       </div>
       <div className="static top-[100px] z-0 overflow-x-visible h-full w-[85%] flex flex-col justify-between">
-        <div className="h-10 flex flex-row justify-between items-center text-xl">
+        <div className="h-10 flex flex-row justify-between items-center text-lg">
           <p className="w-full">ورک‌اسپیس‌ها</p>
           <IoIosArrowDown
             onClick={handelArrowMenu}
@@ -96,20 +83,20 @@ const clearlocal=()=>{
           <input
             type="text"
             placeholder="جستجو کنید"
-            className="w-full bg-transparent"
+            className="w-full text-sm bg-transparent"
           ></input>
         </div>
         <div>
           <button
-            onClick={() => addTask(list)}
-            className="w-full h-7 rounded-xl p-4 bg-slate-400 flex justify-center gap-1 items-center"
+            onClick={() => addWorkSpace(list)}
+            className="w-full text-lg h-7 rounded-xl p-4 bg-slate-400 flex justify-center gap-1 items-center"
           >
             <FaRegPlusSquare />
             ساختن ورک‌اسپیس جدید
           </button>
         </div>
-        <div className=" relative h-[370px] overflow-y overflow-x-visible z-0 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-transparent">
-          <WorkSpaces allTasks={allTasks} />
+        <div className=" relative h-[370px] overflow-x-visible  scrollbar-thin scrollbar-track-transparent scrollbar-thumb-transparent">
+          <WorkSpaces allWorkSpaces={allWorkSpace} />
         </div>
       </div>
       <div className="static h-[10%] w-[85%]  flex justify-start gap-2 items-center">
@@ -117,12 +104,11 @@ const clearlocal=()=>{
         <p>user name</p>
       </div>
       <footer className="flex h-[10%] w-[85%]  justify-between items-center mb-4">
-        <div className="flex  justify-start items-center" >
-        <LiaDoorOpenSolid />
-        <p>خروج</p>
-
+        <div className="flex  justify-start items-center">
+          <LiaDoorOpenSolid />
+          <p>خروج</p>
         </div>
-        <Switch/>
+        <Switch />
       </footer>
     </aside>
   );

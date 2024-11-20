@@ -1,17 +1,17 @@
 import { FaRegPlusSquare } from "react-icons/fa";
-import { ITasks } from "../../types/alltasks";
+import { IWorkspace } from "../../types/alltasksTypes";
 import { useEffect, useState } from "react";
 import ColumnMore from "../columnMore/ColumnMore";
 
 interface IWorkSpacesProps {
-  allTasks: ITasks[];
+  allWorkSpaces: IWorkspace[];
 }
 interface IItem {
   title: string;
   ID: number;
 }
 
-const WorkSpaces: React.FC<IWorkSpacesProps> = ({ allTasks }) => {
+const WorkSpaces: React.FC<IWorkSpacesProps> = ({ allWorkSpaces }) => {
   const [activeKeys, setActiveKeys] = useState<Set<number>>(new Set());
   const [show, setShow] = useState(false);
   const [item, setItem] = useState<IItem>({ ID: 0, title: "" });
@@ -41,46 +41,49 @@ const WorkSpaces: React.FC<IWorkSpacesProps> = ({ allTasks }) => {
     setShow(false);
   }, []);
   return (
-    <div className="flex flex-col gap-5 overflow-x-visible">
+    <div className="flex flex-col gap-5 overflow-x-visible ">
       {show && <ColumnMore data={item} />}
 
-      {allTasks.map((task, index) => (
+      {allWorkSpaces.map((task, index) => (
         <div
           className="flex flex-col justify-start gap-5 items-start"
-          key={task.id}
+          key={index}
         >
           <div className="flex justify-start items-center gap-2 w-full  hover:bg-green-200  p-1 rounded-md ">
             <div className="flex justify-start items-center gap-2 w-full">
               <span
-                className={`w-4 h-4 border rounded-md bg-[#${task.color}]`}
+                className="w-4 h-4 border rounded-md" style={{ backgroundColor: `#${task.color}` }}
               ></span>
+              
               <p
                 onClick={() => handleClick(index)}
                 className={`cursor-pointer`}
               >
-                {task.title}
+                {task.workspacesTitle}
               </p>
             </div>
             <button onClick={() => handelMenu(task.id, "project")}>...</button>
           </div>
           {activeKeys.has(index) && (
-            <ul className=" px-10">
+            <ul className="pr-6 w-full">
               {task.projectList && task.projectList.length > 0 ? (
                 task.projectList.map((project) => (
                   <li
                     key={project.id}
                     onClick={handelProject}
-                    className={` overflow-x-visible hover:bg-green-100 p-1 rounded-md w-full gap-[169px] cursor-pointer flex flex-row justify-between items-center  
+                    className={` overflow-x-visible hover:bg-green-100 p-1 rounded-md w-full cursor-pointer   
                       ${
                         activeKeys.has(index)
                           ? "opacity-100 translate-x-0"
                           : "opacity-0 translate-x-48"
                       }`}
                   >
-                    <span>{project.projectTitle}</span>
+                    <span className=" flex flex-row justify-between items-center">
+                    <p>{project.projectTitle}</p>
                     <button onClick={() => handelMenu(project.id, "task")}>
                       ...
                     </button>
+                    </span>
                   </li>
                 ))
               ) : (
