@@ -22,7 +22,7 @@ const Task: React.FC<ITask> = ({ task }) => {
   };
   // console.log("date",date);
   const [year,month,day]:string[]=date.split("/");
-  const convertmonth=(text) => text.replace(/[٠-٩۰-۹]/g,a=>a.charCodeAt(0)&15);
+  const convertmonth=(text: string) => text.replace(/[٠-٩۰-۹]/g,a=>a.charCodeAt(0)&15);
 const newmonth=convertmonth(month);
   const conveertedDate=day+months[newmonth];
   console.log("text",year,"month",month,"newmonth",newmonth,day,conveertedDate);
@@ -39,7 +39,6 @@ const newmonth=convertmonth(month);
         <div className="w-full flex gap-2 h-1/3">
           <span className="w-full flex gap-2 h-1/3 items-center">
             <Flag priority={task.priority} />
-            {/* <p>{task.deadline}</p> */}
             <p>{deadline}</p>
           </span>
           <span className="w-full flex gap-2 h-1/3 text-gray-400 items-center">
@@ -49,8 +48,8 @@ const newmonth=convertmonth(month);
           </span>
         </div>
         <div className="w-full flex justify-between items-center h-1/3">
-          <p>{task.workspacesTitle}</p>
-          <p>{task.projectTitle}</p>
+          <p className="bg-blue-Secondary text-blue-primary p-2 rounded-full">{task.workspacesTitle}</p>
+          <p className="bg-grape-Secondary text-grape-primary p-2 rounded-full">{task.projectTitle}</p>
           <button> {task.status}</button>
         </div>
       </div>

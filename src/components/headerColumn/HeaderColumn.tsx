@@ -33,9 +33,11 @@ const HeaderColumn: React.FC<IColumnProps> = ({ item }) => {
         ) : (
           tasks.map((task) => <Task task={task} />)
         )}
+        {item.title==="Open"&&
       <button className="w-full flex justify-center items-center px-2 rounded-md gap-3 bg-transparent border-2 border-brand-primary">
-        <FaRegPlusSquare /> ساختن پروژه جدید
+        <FaRegPlusSquare /> ساختن تسک جدید
       </button>
+        }
       </div>
     </>
   );

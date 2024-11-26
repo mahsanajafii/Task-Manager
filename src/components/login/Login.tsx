@@ -18,10 +18,10 @@ const Login = () => {
 
         <div className="flex flex-row justify-center items-end mb-20">
           <div className=" flex flex-col ">
-            <Card style="w-40 h-40  ml-20 bg-pending">
+            <Card style="w-40 h-40  ml-20 bg-pink-primary">
               <NavLink to="/forget">فراموشی رمز عبور</NavLink>
             </Card>
-            <Card style="w-20 h-20 mr-24 bg-btn-background">
+            <Card style="w-20 h-20 mr-24 bg-brand-primary">
               <NavLink to="/register">ثبت‌نام</NavLink>
             </Card>
           </div>

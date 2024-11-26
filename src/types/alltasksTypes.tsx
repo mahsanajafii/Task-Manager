@@ -18,7 +18,7 @@ export interface IWorkspace{
                 users: string[],
                 status:string,
                 description:string,
-                priority:string,
+                priority:"low"|"high"|"emergency"|"intermediate",
                 archive:boolean,
             },
         ],
@@ -47,7 +47,7 @@ export interface ITask{
         users:string[] ,
         status:string ,
         description: string,
-        priority: string,
+        priority: "low"|"high"|"emergency"|"intermediate",
         archive:boolean,
       
 
