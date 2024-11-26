@@ -6,24 +6,22 @@ const allworkspaces = [
   {
     workspacesId: uuidv4(),
     workspacesTitle: "ریکت",
-    staus: "open",
+    staus: "Open",
     color: "ef4444",
     projectList: [
       {
         projectId: uuidv4(),
         projectTitle: "1فروشگاه",
-        staus: "pending",
+        staus: "Open",
 
         tasks: [
           {
             taskID: uuidv4(),
             taskTitle: "صفحه لاگین",
-            // deadline: new Date(),
-            // createdAt: new Date(),
-            deadline: new Date().toLocaleDateString('fa-IR'),
-            createdAt: new Date().toLocaleDateString('fa-IR'),
+            deadline: new Date().toLocaleDateString("fa-IR"),
+            createdAt: new Date().toLocaleDateString("fa-IR"),
             users: ["admin"],
-            status: "open",
+            status: "Open",
             description: "first task",
             priority: "emergency",
             archive: false,
@@ -42,16 +40,16 @@ const allworkspaces = [
       {
         projectId: uuidv4(),
         projectTitle: "2فروشگاه",
-        staus: "progress",
+        staus: "Pending",
 
         tasks: [
           {
             taskID: uuidv4(),
             taskTitle: "صفحه رمز",
-            deadline: new Date().toLocaleDateString('fa-IR'),
-            createdAt: new Date().toLocaleDateString('fa-IR'),
+            deadline: new Date().toLocaleDateString("fa-IR"),
+            createdAt: new Date().toLocaleDateString("fa-IR"),
             users: ["admin"],
-            status: "pending",
+            status: "Pending",
             description: "two task",
             priority: "low",
             archive: false,

@@ -28,7 +28,7 @@ const list: IWorkspace = {
           deadline: new Date().toLocaleDateString('fa-IR'),
           createdAt: new Date().toLocaleDateString('fa-IR'),
           users: ["admin"],
-          status: "done",
+          status: "In Progress",
           description: "tree task",
           priority: "high",
           archive: true,

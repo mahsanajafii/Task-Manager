@@ -8,7 +8,7 @@ export default {
           "0px 2px 4px 1px rgba(0,0,0,0.6),0px 7px 6px -3px rgba(0,0,0,0.33),0px -3px 0px 0px rgba(0,0,0,0.2) inset",
       },
       colors: {
-        "btn-background": "#208D8E",
+        "brand-primary":"#208D8E",
         pending: "#F92E8F",
         open: "#FD7E14",
         progress: "#4C6EF5",
@@ -39,10 +39,10 @@ export default {
   safelist: [
     {
       pattern:
-        /text-(btn-background|pending|open|progress|do|low|high|emergency|intermediate)/,
+        /text-(brand-primary|pending|open|progress|do|low|high|emergency|intermediate)/,
     },
-    { pattern: /bg-(btn-background|pending|open|progress|do|low|high|emergency|intermediate)/, },
-    { pattern: /border-(btn-background|pending|open|progress|do|low|high|emergency|intermediate)/, },
+    { pattern: /bg-(brand-primary|pending|open|progress|do|low|high|emergency|intermediate)/, },
+    { pattern: /border-(brand-primary|pending|open|progress|do|low|high|emergency|intermediate)/, },
   ],
   plugins: [require("tailwind-scrollbar")],
 };

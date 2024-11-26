@@ -62,7 +62,7 @@ const WorkSpaces: React.FC<IWorkSpacesProps> = ({ allWorkSpaces }) => {
                 {task.workspacesTitle}
               </p>
             </div>
-            <button onClick={() => handelMenu(task.id, "project")}>...</button>
+            <button onClick={() => handelMenu(task.workspacesId, "project")}>...</button>
           </div>
           {activeKeys.has(index) && (
             <ul className="pr-6 w-full">
@@ -80,14 +80,14 @@ const WorkSpaces: React.FC<IWorkSpacesProps> = ({ allWorkSpaces }) => {
                   >
                     <span className=" flex flex-row justify-between items-center">
                     <p>{project.projectTitle}</p>
-                    <button onClick={() => handelMenu(project.id, "task")}>
+                    <button onClick={() => handelMenu(project.projectId, "task")}>
                       ...
                     </button>
                     </span>
                   </li>
                 ))
               ) : (
-                <button className="w-full flex justify-center items-center px-2 rounded-md gap-3 bg-transparent border-2 border-black">
+                <button className="w-full flex justify-center items-center px-2 rounded-md gap-3 bg-transparent border-2 border-brand-primary">
                   <FaRegPlusSquare /> ساختن پروژه جدید
                 </button>
               )}
